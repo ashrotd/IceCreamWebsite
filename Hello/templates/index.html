@@ -11,9 +11,9 @@ Home{% endblock title %}
   <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
   <meta name="generator" content="Hugo 0.83.1">
   <title>Carousel Template · Bootstrap v5.0</title>
-
+  
   <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/carousel/">
-
+  
 
 
   <!-- Bootstrap core CSS -->
@@ -67,10 +67,35 @@ Home{% endblock title %}
           <img src="/static/img/juice.jfif" class="bd-placeholder-img" width="100%" height="100%" aria-hidden="true"
             preserveAspectRatio="xMidYMid slice" focusable="false">
           <rect width="100%" height="100%" fill="#777" alt="...">
-
+            
             <div class="container">
-              <div class="carousel-caption text-start">
-                <h1 style="color: #800000;">Example headline.</h1>
+              <div class="carousel-caption text-end">
+                <div class="header">
+                  <form>
+                    <div class="form-box text-center" style="background: rgba(0,0,0, 0.5); padding: 30px;">
+                      <div class="input-group">
+                        <input type="text" class="col-4" aria-label="Text input with dropdown button">
+                        <div class="input-group-append">
+                          <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</button>
+                          <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                            <div role="separator" class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Separated link</a>
+                          </div>
+                        </div>
+                        <input type="text" class="search-field location px-2" style="height: 50px; border: none; width: 200px; border-radius: 20px; outline: none; padding: 10px;" placeholder="Baby age">
+                      <button style="height: 50px; border:none; border-radius: 20px; color: #fff; width: 150px; background: #000; padding: 10px;" class="search-btn" type="button">Search</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <div class="header">
+                  <form>
+                    <h1 style="color: #800000;">Find Children Closet Easily</h1>
+                  </form>
+                </div>
                 <p style="color: #800000;">Some representative placeholder content for the first slide of the carousel.</p>
                 <p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p>
               </div>
@@ -82,8 +107,21 @@ Home{% endblock title %}
           <rect width="100%" height="100%" fill="#777" alt="...">
 
             <div class="container">
-              <div class="carousel-caption">
-                <h1 style="color: #800000;">Another example headline.</h1>
+              <div class="carousel-caption text-end">
+                <div class="header">
+                  <form>
+                    <div class="form-box text-center"style="background: rgba(0,0,0, 0.5); padding: 30px;">
+                      <input type="text" style="height: 50px; border: none; border-radius: 20px; outline: none; width: 400px; padding: 10px;" class="search-field business" placeholder="Dress">
+                      <input type="text" class="search-field location" style="height: 50px; border: none; width: 200px; border-radius: 20px; outline: none; padding: 10px;" placeholder="Baby age">
+                      <button style="height: 50px; border:none; border-radius: 20px; color: #fff; width: 150px; background: #000;" class="search-btn" type="button">Search</button>
+                    </div>
+                  </form>
+                </div>
+                <div class="header">
+                  <form>
+                    <h1 style="color: #800000;">Find Children Closet Easily</h1>
+                  </form>
+                </div>
                 <p style="color: #800000;">Some representative placeholder content for the second slide of the carousel.</p>
                 <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
               </div>
@@ -96,7 +134,20 @@ Home{% endblock title %}
 
             <div class="container">
               <div class="carousel-caption text-end">
-                <h1 style="color: #800000;">One more for good measure.</h1>
+                <div class="header">
+                  <form>
+                    <div class="form-box text-center" style="background: rgba(0,0,0, 0.5); padding: 30px;">
+                      <input type="text" style="height: 50px; border: none; border-radius: 20px; outline: none; width: 400px; padding: 10px;" class="search-field business" placeholder="Dress">
+                      <input type="text" class="search-field location" style="height: 50px; border: none; width: 200px; border-radius: 20px; outline: none; padding: 10px;" placeholder="Baby age">
+                      <button style="height: 50px; border:none; border-radius: 20px; color: #fff; width: 150px; background: #000;" class="search-btn" type="button">Search</button>
+                    </div>
+                  </form>
+                </div>
+                <div class="header">
+                  <form>
+                    <h1 style="color: #800000;">Find Children Closet Easily</h1>
+                  </form>
+                </div>
                 <p style="color: #800000;">Some representative placeholder content for the third slide of this carousel.</p>
                 <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
               </div>
@@ -114,8 +165,8 @@ Home{% endblock title %}
     </div>
 
 
-    <div class="album py-5 bg-light mb-3">
-      <div class="container my-5">
+    <div class="album py-5 bg-light mb-1">
+      <div class="container my-2">
         <hr>
         <h1 class="my-2 text-center">Most Popular Item</h1>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 py-4">
