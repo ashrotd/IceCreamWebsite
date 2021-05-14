@@ -11,9 +11,9 @@ Home{% endblock title %}
   <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
   <meta name="generator" content="Hugo 0.83.1">
   <title>Carousel Template · Bootstrap v5.0</title>
-  
+
   <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/carousel/">
-  
+
 
 
   <!-- Bootstrap core CSS -->
@@ -38,6 +38,22 @@ Home{% endblock title %}
       user-select: none;
     }
 
+    .card {
+      display: inline-block;
+      border-radius: 10px 10px 0px 0px;
+      margin: 5px;
+
+    }
+
+    .card img {
+      border-radius: 10px 10px 0px 0px;
+      height: auto;
+    }
+
+    body .carousel-indicators {
+      bottom: 0;
+    }
+
     @media (min-width: 768px) {
       .bd-placeholder-img-lg {
         font-size: 3.5rem;
@@ -52,7 +68,7 @@ Home{% endblock title %}
 
 <body>
 
-
+  <!--Cover Page Slider-->
   <main>
     <div id="myCarousel" class="carousel slide pointer-event" data-bs-ride="carousel">
       <div class="carousel-indicators">
@@ -66,16 +82,17 @@ Home{% endblock title %}
           <img src="/static/img/juice.jfif" class="bd-placeholder-img" width="100%" height="100%" aria-hidden="true"
             preserveAspectRatio="xMidYMid slice" focusable="false">
           <rect width="100%" height="100%" fill="#777" alt="...">
-            
+
             <div class="container">
               <div class="carousel-caption text-end">
-                
+
                 <div class="header">
                   <form>
                     <h1 style="color: #800000;">Find Children Closet Easily</h1>
                   </form>
                 </div>
-                <p style="color: #800000;">Some representative placeholder content for the first slide of the carousel.</p>
+                <p style="color: #800000;">Some representative placeholder content for the first slide of the carousel.
+                </p>
                 <p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p>
               </div>
             </div>
@@ -87,13 +104,14 @@ Home{% endblock title %}
 
             <div class="container">
               <div class="carousel-caption text-end">
-                
+
                 <div class="header">
                   <form>
                     <h1 style="color: #800000;">Find Children Closet Easily</h1>
                   </form>
                 </div>
-                <p style="color: #800000;">Some representative placeholder content for the second slide of the carousel.</p>
+                <p style="color: #800000;">Some representative placeholder content for the second slide of the carousel.
+                </p>
                 <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
               </div>
             </div>
@@ -110,7 +128,8 @@ Home{% endblock title %}
                     <h1 style="color: #800000;">Find Children Closet Easily</h1>
                   </form>
                 </div>
-                <p style="color: #800000;">Some representative placeholder content for the third slide of this carousel.</p>
+                <p style="color: #800000;">Some representative placeholder content for the third slide of this carousel.
+                </p>
                 <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
               </div>
             </div>
@@ -125,23 +144,27 @@ Home{% endblock title %}
         <span class="visually-hidden">Next</span>
       </button>
     </div>
+    <!--Search Box (Quick Search)-->
     <div class="container my-3">
       <div class="header">
         <form>
-          <div class="form-box text-center"style="background: rgba(0,0,0, 0.5); padding: 30px;">
-            <select style="border-radius: 20px;" class=" col-6 form-select-lg mb-3" aria-label=".form-select-lg example">
+          <div class="form-box text-center" style="background: rgba(0,0,0, 0.5); padding: 30px;">
+            <select style="border-radius: 20px;" class=" col-6 form-select-lg mb-3"
+              aria-label=".form-select-lg example">
               <option selected>Choose the Dress Categories</option>
               <option value="1">One</option>
               <option value="2">Two</option>
               <option value="3">Three</option>
-            </select> 
-            <select style="border-radius: 20px;" class=" col-2 form-select-lg mb-3" aria-label=".form-select-lg example">
+            </select>
+            <select style="border-radius: 20px;" class=" col-2 form-select-lg mb-3"
+              aria-label=".form-select-lg example">
               <option selected>Gender</option>
               <option value="1">One</option>
               <option value="2">Two</option>
               <option value="3">Three</option>
             </select>
-            <select style="border-radius: 20px;" class=" col-2 form-select-lg mb-3" aria-label=".form-select-lg example">
+            <select style="border-radius: 20px;" class=" col-2 form-select-lg mb-3"
+              aria-label=".form-select-lg example">
               <option selected>Age</option>
               <option value="1">One</option>
               <option value="2">Two</option>
@@ -150,156 +173,121 @@ Home{% endblock title %}
             <button style="border-radius: 20px;" type="button" class="btn btn-dark mb-2 btn-lg">Quick Search</button>
           </div>
         </form>
-      </div> 
+      </div>
     </div>
 
-    <div class="album py-5 bg-light mb-1">
-      <div class="container my-2">
-        <hr>
-        <h1 class="my-2 text-center">Most Popular Item</h1>
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 py-4">
-          <div class="col">
-            <div class="card shadow-sm">
-              <img src="https://source.unsplash.com/1200x900/?juice" class="d-block w-100">
-              <div class="card-body">
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-                  content. This content is a little bit longer.</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                  </div>
-                  <small class="text-muted">9 mins</small>
+    <!--Most Popular Section-->
+    <div class="container text-center">
+      <hr>
+      <h1>Most Popular</h1>
+    </div>
+    <div id="carouselExampleIndicators" class="carousel slide my-5" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <ul>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+            aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+            aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+            aria-label="Slide 3"></button>
+        </ul>
+      </div>
+      <div class="container my-3">
+        <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner text-center">
+            <div class="carousel-item active col-md-3">
+              <div class="card" style="width: 18rem;">
+                <img src="/static/img/cream.jfif" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the
+                    bulk
+                    of the card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+              <div class="card" style="width: 18rem;">
+                <img src="/static/img/ice-cream.jfif" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the
+                    bulk
+                    of the card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+              <div class="card" style="width: 18rem; ">
+                <img src="/static/img/juice.jfif" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the
+                    bulk
+                    of the card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="col">
-            <div class="card shadow-sm">
-              <img src="https://source.unsplash.com/1200x900/?drinks" class="d-block w-100">
-              <div class="card-body">
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-                  content. This content is a little bit longer.</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                  </div>
-                  <small class="text-muted">9 mins</small>
+            <div class="carousel-item col-md-3">
+              <div class="card" style="width: 18rem;">
+                <img src="/static/img/cream.jfif" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the
+                    bulk
+                    of the card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+              <div class="card" style="width: 18rem;">
+                <img src="/static/img/ice-cream.jfif" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the
+                    bulk
+                    of the card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+              <div class="card" style="width: 18rem; ">
+                <img src="/static/img/juice.jfif" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the
+                    bulk
+                    of the card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="col">
-            <div class="card shadow-sm">
-              <img src="https://source.unsplash.com/1200x900/?cold" class="d-block w-100">
-              <div class="card-body">
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-                  content. This content is a little bit longer.</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                  </div>
-                  <small class="text-muted">9 mins</small>
+            <div class="carousel-item col-md-3">
+              <div class="card" style="width: 18rem;">
+                <img src="/static/img/cream.jfif" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the
+                    bulk
+                    of the card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
                 </div>
               </div>
-            </div>
-          </div>
-
-          <div class="col">
-            <div class="card shadow-sm">
-              <img src="https://source.unsplash.com/1200x900/?cream" class="d-block w-100">
-              <div class="card-body">
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-                  content. This content is a little bit longer.</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                  </div>
-                  <small class="text-muted">9 mins</small>
+              <div class="card" style="width: 18rem;">
+                <img src="/static/img/ice-cream.jfif" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the
+                    bulk
+                    of the card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
                 </div>
               </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card shadow-sm">
-              <img src="https://source.unsplash.com/1200x900/?pancakes" class="d-block w-100">
-              <div class="card-body">
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-                  content. This content is a little bit longer.</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                  </div>
-                  <small class="text-muted">9 mins</small>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card shadow-sm">
-              <img src="https://source.unsplash.com/1200x900/?sandwich" class="d-block w-100">
-              <div class="card-body">
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-                  content. This content is a little bit longer.</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                  </div>
-                  <small class="text-muted">9 mins</small>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col">
-            <div class="card shadow-sm">
-              <img src="https://source.unsplash.com/1200x900/?berries" class="d-block w-100">
-              <div class="card-body">
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-                  content. This content is a little bit longer.</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                  </div>
-                  <small class="text-muted">9 mins</small>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card shadow-sm">
-              <img src="https://source.unsplash.com/1200x900/?blueberry" class="d-block w-100">
-              <div class="card-body">
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-                  content. This content is a little bit longer.</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                  </div>
-                  <small class="text-muted">9 mins</small>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card shadow-sm">
-              <img src="https://source.unsplash.com/1200x900/?iced-tea" class="d-block w-100">
-              <div class="card-body">
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-                  content. This content is a little bit longer.</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                  </div>
-                  <small class="text-muted">9 mins</small>
+              <div class="card" style="width: 18rem; ">
+                <img src="/static/img/juice.jfif" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the
+                    bulk
+                    of the card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
                 </div>
               </div>
             </div>
@@ -307,6 +295,127 @@ Home{% endblock title %}
         </div>
       </div>
     </div>
+    <!--Hot Selling Categories-->
+
+    <div class="container text-center">
+      <hr>
+      <h1>Hot Selling</h1>
+    </div>
+    <div id="carouselExampleIndicators" class="carousel slide my-5" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <ul>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+            aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+            aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+            aria-label="Slide 3"></button>
+        </ul>
+      </div>
+      <div class="container my-3">
+        <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner text-center">
+            <div class="carousel-item active col-md-3">
+              <div class="card" style="width: 18rem;">
+                <img src="/static/img/cream.jfif" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the
+                    bulk
+                    of the card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+              <div class="card" style="width: 18rem;">
+                <img src="/static/img/ice-cream.jfif" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the
+                    bulk
+                    of the card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+              <div class="card" style="width: 18rem; ">
+                <img src="/static/img/juice.jfif" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the
+                    bulk
+                    of the card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item col-md-3">
+              <div class="card" style="width: 18rem;">
+                <img src="/static/img/cream.jfif" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the
+                    bulk
+                    of the card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+              <div class="card" style="width: 18rem;">
+                <img src="/static/img/ice-cream.jfif" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the
+                    bulk
+                    of the card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+              <div class="card" style="width: 18rem; ">
+                <img src="/static/img/juice.jfif" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the
+                    bulk
+                    of the card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item col-md-3">
+              <div class="card" style="width: 18rem;">
+                <img src="/static/img/cream.jfif" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the
+                    bulk
+                    of the card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+              <div class="card" style="width: 18rem;">
+                <img src="/static/img/ice-cream.jfif" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the
+                    bulk
+                    of the card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+              <div class="card" style="width: 18rem; ">
+                <img src="/static/img/juice.jfif" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the
+                    bulk
+                    of the card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="container">
       <hr>
       <h1 class="text-center">Twining Dresses</h1>
