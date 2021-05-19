@@ -38,17 +38,32 @@ Home{% endblock title %}
       user-select: none;
     }
 
-    .card {
+    .col-md-3 {
       display: inline-block;
-      border-radius: 10px 10px 0px 0px;
-      margin: 5px;
+      margin-left: -4px;
+      padding: 5px;
+    }
+
+    .card {
+      align-items: center;
+    }
+
+    .carousel-control-prev-icon {
+      background: no-repeat center center;
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z'/%3e%3c/svg%3e");
+    }
+
+    .carousel-control-next-icon {
+      background: no-repeat center center;
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
 
     }
 
-    .card img {
-      border-radius: 10px 10px 0px 0px;
-      height: auto;
+    .col-md-3 img {
+      width: 255px;
+      height: 200px;
     }
+
 
     body .carousel-indicators {
       bottom: 0;
@@ -72,9 +87,10 @@ Home{% endblock title %}
   <main>
     <div id="myCarousel" class="carousel slide pointer-event" data-bs-ride="carousel">
       <div class="carousel-indicators">
-        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"
+          aria-label="Slide 1"></button>
         <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2" class=""></button>
-        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3" class="active"
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"
           aria-current="true"></button>
       </div>
       <div class="carousel-inner">
@@ -177,245 +193,97 @@ Home{% endblock title %}
     </div>
 
     <!--Most Popular Section-->
-    <div class="container text-center">
-      <hr>
+    <div class="container text-center my-5">
       <h1>Most Popular</h1>
-    </div>
-    <div id="carouselExampleIndicators" class="carousel slide my-5" data-bs-ride="carousel">
-      <div class="carousel-indicators">
-        <ul>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
-            aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-            aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-            aria-label="Slide 3"></button>
-        </ul>
-      </div>
-      <div class="container my-3">
-        <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+  </div>
+  <div class="container my-5">
+
+
+      <div id="carouselExampleControl" class="carousel slide" data-bs-ride="carousel">
           <div class="carousel-inner text-center">
-            <div class="carousel-item active col-md-3">
-              <div class="card" style="width: 18rem;">
-                <img src="/static/img/cream.jfif" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the
-                    bulk
-                    of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
+              <div class="carousel-item active">
+          
+              
+                  {% for i in product %}
+                  <div class="col-xs-3 col-sm-3 col-md-3">
+                      <div class="card text-center" style="width: 18rem;">
+                          <img src='/media/{{i.image}}' class="card-img-top" alt="...">
+                          <div class="card-body">
+                              <h5 class="card-title">{{i.product_name}}</h5>
+                              <p class="card-text">{{i.desc}}</p>
+                              <a href="#" id="pr{{i.id}}" class="btn btn-primary cart">Add To Cart</a>
+                          </div>
+                      </div>
+                  </div>
+
+                  {% if forloop.counter|divisibleby:4 and forloop.counter > 0 and not forloop.last %}
+
               </div>
-              <div class="card" style="width: 18rem;">
-                <img src="/static/img/ice-cream.jfif" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the
-                    bulk
-                    of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
+              <div class="carousel-item">
+                  {% endif %}
+
+                  {% endfor %}
               </div>
-              <div class="card" style="width: 18rem; ">
-                <img src="/static/img/juice.jfif" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the
-                    bulk
-                    of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-            </div>
-            <div class="carousel-item col-md-3">
-              <div class="card" style="width: 18rem;">
-                <img src="/static/img/cream.jfif" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the
-                    bulk
-                    of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-              <div class="card" style="width: 18rem;">
-                <img src="/static/img/ice-cream.jfif" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the
-                    bulk
-                    of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-              <div class="card" style="width: 18rem; ">
-                <img src="/static/img/juice.jfif" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the
-                    bulk
-                    of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-            </div>
-            <div class="carousel-item col-md-3">
-              <div class="card" style="width: 18rem;">
-                <img src="/static/img/cream.jfif" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the
-                    bulk
-                    of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-              <div class="card" style="width: 18rem;">
-                <img src="/static/img/ice-cream.jfif" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the
-                    bulk
-                    of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-              <div class="card" style="width: 18rem; ">
-                <img src="/static/img/juice.jfif" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the
-                    bulk
-                    of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-            </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControl"
+                  data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControl"
+                  data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+              </button>
           </div>
-        </div>
       </div>
-    </div>
+  </div>
     <!--Hot Selling Categories-->
 
-    <div class="container text-center">
-      <hr>
+    <div class="container text-center my-5">
       <h1>Hot Selling</h1>
-    </div>
-    <div id="carouselExampleIndicators" class="carousel slide my-5" data-bs-ride="carousel">
-      <div class="carousel-indicators">
-        <ul>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
-            aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-            aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-            aria-label="Slide 3"></button>
-        </ul>
-      </div>
-      <div class="container my-3">
-        <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
-          <div class="carousel-inner text-center">
-            <div class="carousel-item active col-md-3">
-              <div class="card" style="width: 18rem;">
-                <img src="/static/img/cream.jfif" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the
-                    bulk
-                    of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-              <div class="card" style="width: 18rem;">
-                <img src="/static/img/ice-cream.jfif" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the
-                    bulk
-                    of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-              <div class="card" style="width: 18rem; ">
-                <img src="/static/img/juice.jfif" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the
-                    bulk
-                    of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-            </div>
-            <div class="carousel-item col-md-3">
-              <div class="card" style="width: 18rem;">
-                <img src="/static/img/cream.jfif" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the
-                    bulk
-                    of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-              <div class="card" style="width: 18rem;">
-                <img src="/static/img/ice-cream.jfif" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the
-                    bulk
-                    of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-              <div class="card" style="width: 18rem; ">
-                <img src="/static/img/juice.jfif" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the
-                    bulk
-                    of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-            </div>
-            <div class="carousel-item col-md-3">
-              <div class="card" style="width: 18rem;">
-                <img src="/static/img/cream.jfif" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the
-                    bulk
-                    of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-              <div class="card" style="width: 18rem;">
-                <img src="/static/img/ice-cream.jfif" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the
-                    bulk
-                    of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-              <div class="card" style="width: 18rem; ">
-                <img src="/static/img/juice.jfif" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the
-                    bulk
-                    of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+  </div>
+  <div class="container my-5">
 
+
+      <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner text-center">
+              <div class="carousel-item active">
+          
+              
+                  {% for i in products %}
+                  <div class="col-xs-3 col-sm-3 col-md-3">
+                      <div class="card text-center" style="width: 18rem;">
+                          <img src='/media/{{i.image}}' class="card-img-top" alt="...">
+                          <div class="card-body">
+                              <h5 class="card-title">{{i.product_name}}</h5>
+                              <p class="card-text">{{i.desc}}</p>
+                              <a href="#" id="pr{{i.id}}" class="btn btn-primary cart">Add To Cart</a>
+                          </div>
+                      </div>
+                  </div>
+
+                  {% if forloop.counter|divisibleby:4 and forloop.counter > 0 and not forloop.last %}
+
+              </div>
+              <div class="carousel-item">
+                  {% endif %}
+
+                  {% endfor %}
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                  data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                  data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+              </button>
+          </div>
+      </div>
+  </div>
+    <!--Twining Dress Section-->
     <div class="container">
       <hr>
       <h1 class="text-center">Twining Dresses</h1>
@@ -436,6 +304,7 @@ Home{% endblock title %}
         </div>
       </div>
     </div>
+    <!--Our Production Section-->
     <div class="container">
       <hr>
       <h1 class="text-center my-3">Our Production</h1>
@@ -450,4 +319,7 @@ Home{% endblock title %}
             aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
         </div>
       </div>
-      {% endblock body %}
+    </div>
+    {% endblock body %}
+  </main>
+</body>

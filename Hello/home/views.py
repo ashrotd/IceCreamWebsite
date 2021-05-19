@@ -1,13 +1,15 @@
 from django.shortcuts import render, HttpResponse
 from django.contrib import messages
 from .models import Contact
+from .models import Product
+from math import ceil
 from datetime import datetime
 # Create your views here.
 def index(request):
-    context = {
-        
-    }
-    return render(request, 'index.html', context)
+    most_popular = Product.objects.filter(most_popular=True)
+    hot_selling = Product.objects.filter(hot_selling = True)
+    params = {'product': most_popular, 'products':hot_selling}
+    return render(request, 'index.html', params)
 
 def about(request):
     return render(request,'about.html')
@@ -27,4 +29,8 @@ def contact(request):
     return render(request, 'contact.html')
 
 def test(request):
-    return render(request, 'test.html')
+    
+    most_popular = Product.objects.filter(most_popular=True)
+    hot_selling = Product.objects.filter(hot_selling = True)
+    params = {'product': most_popular, 'products':hot_selling}
+    return render(request, 'test.html', params)
