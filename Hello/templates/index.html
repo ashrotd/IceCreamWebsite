@@ -10,7 +10,7 @@ Home{% endblock title %}
   <meta name="description" content="">
   <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
   <meta name="generator" content="Hugo 0.83.1">
-  <title>Carousel Template · Bootstrap v5.0</title>
+
 
   <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/carousel/">
 
@@ -19,7 +19,9 @@ Home{% endblock title %}
   <!-- Bootstrap core CSS -->
   <link href="/docs/5.0/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
-
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
   <!-- Favicons -->
   <link rel="apple-touch-icon" href="/docs/5.0/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
   <link rel="icon" href="/docs/5.0/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
@@ -30,14 +32,6 @@ Home{% endblock title %}
   <meta name="theme-color" content="#7952b3">
 
   <style>
-    .bd-placeholder-img {
-      font-size: 1.125rem;
-      text-anchor: middle;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      user-select: none;
-    }
-
     .col-md-3 {
       display: inline-block;
       margin-left: -4px;
@@ -49,18 +43,20 @@ Home{% endblock title %}
     }
 
     .carousel-control-prev-icon {
-      background: no-repeat center center;
+      background: #800000 no-repeat center center;
       background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z'/%3e%3c/svg%3e");
     }
 
     .carousel-control-next-icon {
-      background: no-repeat center center;
+      background: #800000 no-repeat center center;
       background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
 
     }
 
+
+
     .col-md-3 img {
-      width: 255px;
+      max-width: 255px;
       height: 200px;
     }
 
@@ -69,13 +65,10 @@ Home{% endblock title %}
       bottom: 0;
     }
 
-    @media (min-width: 768px) {
-      .bd-placeholder-img-lg {
-        font-size: 3.5rem;
-      }
+    body .no-padding {
+      padding-left: 0,
     }
   </style>
-
 
   <!-- Custom styles for this template -->
   <link href="carousel.css" rel="stylesheet">
@@ -200,18 +193,19 @@ Home{% endblock title %}
 
 
       <div id="carouselExampleControl" class="carousel slide" data-bs-ride="carousel">
-          <div class="carousel-inner text-center">
+          <div class="carousel-inner no-padding text-center">
               <div class="carousel-item active">
-          
-              
+
+
                   {% for i in product %}
                   <div class="col-xs-3 col-sm-3 col-md-3">
                       <div class="card text-center" style="width: 18rem;">
                           <img src='/media/{{i.image}}' class="card-img-top" alt="...">
                           <div class="card-body">
                               <h5 class="card-title">{{i.product_name}}</h5>
-                              <p class="card-text">{{i.desc}}</p>
+                              <p class="card-text">{{i.desc|slice:"0:53"}}....</p>
                               <a href="#" id="pr{{i.id}}" class="btn btn-primary cart">Add To Cart</a>
+                              <a href="/product/{{i.id}}" id="qv{{i.id}}" class="btn btn-primary ">View Product</a>
                           </div>
                       </div>
                   </div>
@@ -224,19 +218,21 @@ Home{% endblock title %}
 
                   {% endfor %}
               </div>
-              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControl"
+              
+          </div>
+          <button class="carousel-control-prev" style="width: 5rem;" type="button" data-bs-target="#carouselExampleControl"
                   data-bs-slide="prev">
                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                   <span class="visually-hidden">Previous</span>
               </button>
-              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControl"
+              <button class="carousel-control-next" style="width: 5rem;" type="button" data-bs-target="#carouselExampleControl"
                   data-bs-slide="next">
                   <span class="carousel-control-next-icon" aria-hidden="true"></span>
                   <span class="visually-hidden">Next</span>
               </button>
-          </div>
       </div>
-  </div>
+    </div>
+    </div>
     <!--Hot Selling Categories-->
 
     <div class="container text-center my-5">
@@ -246,18 +242,19 @@ Home{% endblock title %}
 
 
       <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-          <div class="carousel-inner text-center">
+          <div class="carousel-inner no-padding text-center">
               <div class="carousel-item active">
-          
-              
+
+
                   {% for i in products %}
                   <div class="col-xs-3 col-sm-3 col-md-3">
                       <div class="card text-center" style="width: 18rem;">
                           <img src='/media/{{i.image}}' class="card-img-top" alt="...">
                           <div class="card-body">
                               <h5 class="card-title">{{i.product_name}}</h5>
-                              <p class="card-text">{{i.desc}}</p>
+                              <p class="card-text">{{i.desc|slice:"0:53"}}....</p>
                               <a href="#" id="pr{{i.id}}" class="btn btn-primary cart">Add To Cart</a>
+                              <a href="/product/{{i.id}}" id="qv{{i.id}}" class="btn btn-primary">View Product</a>
                           </div>
                       </div>
                   </div>
@@ -270,19 +267,21 @@ Home{% endblock title %}
 
                   {% endfor %}
               </div>
-              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+              
+          </div>
+          <button class="carousel-control-prev" style="width: 5rem;" type="button" data-bs-target="#carouselExampleControls"
                   data-bs-slide="prev">
                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                   <span class="visually-hidden">Previous</span>
               </button>
-              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+              <button class="carousel-control-next" style="width: 5rem;" type="button" data-bs-target="#carouselExampleControls"
                   data-bs-slide="next">
                   <span class="carousel-control-next-icon" aria-hidden="true"></span>
                   <span class="visually-hidden">Next</span>
               </button>
-          </div>
+        </div>
       </div>
-  </div>
+    </div>
     <!--Twining Dress Section-->
     <div class="container">
       <hr>
@@ -320,6 +319,32 @@ Home{% endblock title %}
         </div>
       </div>
     </div>
+    {% block js %}
+    <script>
+      console.log('working');
+      if (localStorage.getItem('cart') == null) {
+        var cart = {}
+        console.log(cart);
+      }
+      else {
+        cart = JSON.parse(localStorage.getItem('cart'));
+        console.log(cart);
+        document.getElementById('cart').innerHTML = Object.keys(cart).length;
+      }
+      $('.cart').click(function () {
+        var idstr = this.id.toString();
+        if (cart[idstr] != undefined) {
+          cart[idstr] = cart[idstr] + 1;
+        }
+        else {
+          cart[idstr] = 1;
+        }
+        console.log(cart);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        document.getElementById('cart').innerHTML = Object.keys(cart).length;
+      });
+    </script>
+    {% endblock js %}
     {% endblock body %}
   </main>
 </body>

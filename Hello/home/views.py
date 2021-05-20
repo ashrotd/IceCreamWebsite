@@ -34,3 +34,8 @@ def test(request):
     hot_selling = Product.objects.filter(hot_selling = True)
     params = {'product': most_popular, 'products':hot_selling}
     return render(request, 'test.html', params)
+
+def product(request,myid):
+    prod = Product.objects.filter(id=myid)
+    parameter = {'prod':prod[0]}
+    return render(request,'product.html',parameter)
