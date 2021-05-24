@@ -204,8 +204,8 @@ Home{% endblock title %}
                           <div class="card-body">
                               <h5 class="card-title">{{i.product_name}}</h5>
                               <p class="card-text">{{i.desc|slice:"0:53"}}....</p>
-                              <a href="#" id="pr{{i.id}}" class="btn btn-primary cart">Add To Cart</a>
-                              <a href="/product/{{i.id}}" id="qv{{i.id}}" class="btn btn-primary ">View Product</a>
+                              <a href="#" id="pr{{i.id}}" class="btn btn-primary cart" >Add To Cart</a>
+                              <a href="/product/{{i.id}}" id="qv{{i.id}}"  class="btn btn-primary ">View Product</a>
                           </div>
                       </div>
                   </div>
@@ -253,7 +253,7 @@ Home{% endblock title %}
                           <div class="card-body">
                               <h5 class="card-title">{{i.product_name}}</h5>
                               <p class="card-text">{{i.desc|slice:"0:53"}}....</p>
-                              <a href="#" id="pr{{i.id}}" class="btn btn-primary cart">Add To Cart</a>
+                              <button href="#" id="pr{{i.id}}" class="btn btn-primary cart">Add To Cart</button>
                               <a href="/product/{{i.id}}" id="qv{{i.id}}" class="btn btn-primary">View Product</a>
                           </div>
                       </div>
@@ -321,28 +321,31 @@ Home{% endblock title %}
     </div>
     {% block js %}
     <script>
-      console.log('working');
-      if (localStorage.getItem('cart') == null) {
+      
+      if(localStorage.getItem('cart') == null){
+        console.log("nothing")
         var cart = {}
-        console.log(cart);
       }
-      else {
+      else{
         cart = JSON.parse(localStorage.getItem('cart'));
-        console.log(cart);
-        document.getElementById('cart').innerHTML = Object.keys(cart).length;
+        document.getElementById('cart_quantity').innerHTML = Object.keys(cart).length;
+        document.getElementById('cart_quantity1').innerHTML = Object.keys(cart).length;
       }
-      $('.cart').click(function () {
-        var idstr = this.id.toString();
-        if (cart[idstr] != undefined) {
-          cart[idstr] = cart[idstr] + 1;
+      $('.cart').click(function(){
+        console.log('click')
+        var idString = this.id.toString();
+        console.log(idString)
+        if(cart[idString] != undefined){
+          cart[idString] += 1;
         }
-        else {
-          cart[idstr] = 1;
+        else{
+          cart[idString] = 1
         }
-        console.log(cart);
-        localStorage.setItem('cart', JSON.stringify(cart));
-        document.getElementById('cart').innerHTML = Object.keys(cart).length;
-      });
+        localStorage.setItem('cart',JSON.stringify(cart))
+        
+        document.getElementById('cart_quantity').innerHTML = Object.keys(cart).length;
+        document.getElementById('cart_quantity1').innerHTML = Object.keys(cart).length;
+      })
     </script>
     {% endblock js %}
     {% endblock body %}

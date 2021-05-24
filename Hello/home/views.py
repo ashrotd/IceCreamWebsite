@@ -38,4 +38,5 @@ def test(request):
 def product(request,myid):
     prod = Product.objects.filter(id=myid)
     parameter = {'prod':prod[0]}
+
     return render(request,'product.html',parameter)
