@@ -40,3 +40,6 @@ def product(request,myid):
     parameter = {'prod':prod[0]}
 
     return render(request,'product.html',parameter)
+
+def cartPage(request):
+    return render(request,'cart.html')

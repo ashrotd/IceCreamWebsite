@@ -1,0 +1,150 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-10 col-11 mx-auto">
+            <div class="row mt-5 gx-3">
+                <!--Left Side div-->
+                <div class="col-md-12 col-lg-8 col-11 mx-auto main_cart mb-lg-0 mb-5">
+                    <div class="card p-4 shadow">
+                        <h2 class="py-4 font-weight-bold">Cart Items</h2>
+                        <div class="row">
+                            <!--Cart Images-->
+                            <div
+                                class="col-md-5 col-11 mx-auto bg-light d-flex justify-content-center align-items-center shadow product_image">
+                                <img src="/media/images/teether.jpg" class="img-fluid">
+                            </div>
+                            <!-- Image Details -->
+                            <div class="col-md-7 col-11 mx-auto px-4 mt-2">
+                                <!-- product name -->
+                                <div class="row">
+                                    <div class="col-6 card-title">
+                                        <h1 class="mb-4 product_name">Teether</h1>
+                                        <p class="mb-2">Comfortable</p>
+                                        <p class="mb-2">Smooth</p>
+                                        <p class="mb-2">Bacteria Free</p>
+                                        <p class="mb-3">Baby Age</p>
+                                    </div>
+                                    <!-- Quantity Increment/Decrement -->
+                                    <div class="col-6">
+                                        <ul class="pagination justify-content-end set_quantity">
+                                            <li class="page-item"><button class="page-link" onclick="decrementNum()"
+                                                    href="#"><i class="fas fa-minus"></i></button></li>
+                                            <li class="page-item"><input type="text" class="page-link" value="1"
+                                                    id="textbox"></input></li>
+                                            <li class="page-item"><button class="page-link" onclick="incrementNum()"
+                                                    href="#"><i class="fas fa-plus"></i></button></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- Remove, wishlist & Price -->
+                                <div class="row">
+                                    <div class="col-12 d-flex justify-content-between remove_wish">
+                                        <p><i class="fas fa-trash-alt"></i>Remove Items</p>
+                                        <p><i class="fas fa-heart"></i>Add to Wishlist</p>
+                                        <h3>Rs <span id="itemval">0.00</span></h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card p-4 shadow">
+
+                        <div class="row">
+                            <!--Cart Images-->
+                            <div
+                                class="col-md-5 col-11 mx-auto bg-light d-flex justify-content-center align-items-center shadow product_image">
+                                <img src="/media/images/cool_rompers.jpg" class="img-fluid">
+                            </div>
+                            <!-- Image Details -->
+                            <div class="col-md-7 col-11 mx-auto px-4 mt-2">
+                                <!-- product name -->
+                                <div class="row">
+                                    <div class="col-6 card-title">
+                                        <h1 class="mb-4 product_name">Teether</h1>
+                                        <p class="mb-2">Comfortable</p>
+                                        <p class="mb-2">Smooth</p>
+                                        <p class="mb-2">Bacteria Free</p>
+                                        <p class="mb-3">Baby Age</p>
+                                    </div>
+                                    <!-- Quantity Increment/Decrement -->
+                                    <div class="col-6">
+                                        <ul class="pagination justify-content-end set_quantity">
+                                            <li class="page-item"><button class="page-link" onclick="decrementNum()"
+                                                    href="#"><i class="fas fa-minus"></i></button></li>
+                                            <li class="page-item"><input type="text" class="page-link" value="1"
+                                                    id="textbox"></input></li>
+                                            <li class="page-item"><button class="page-link" onclick="incrementNum()"
+                                                    href="#"><i class="fas fa-plus"></i></button></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- Remove, wishlist & Price -->
+                                <div class="row">
+                                    <div class="col-12 d-flex justify-content-between remove_wish">
+                                        <p><i class="fas fa-trash-alt"></i>Remove Items</p>
+                                        <p><i class="fas fa-heart"></i>Add to Wishlist</p>
+                                        <h3>Rs <span id="itemval">0.00</span></h3>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!--Right side div-->
+                    </div>
+
+                </div>
+                <div class="col-md-12 col 11 col-lg-4 mx-auto mt-md-5 mt-lg-0">
+                    <div class="right_side p-3 shadow bg-white">
+                        <h2 class="product_name mb-5">Total Amount of</h2>
+                        <div class="d-flex price_indiv justify-content-between">
+                            <p>Product Amount</p>
+                            <p>Rs <span>0.00</span></p>
+                        </div>
+                        <div class="d-flex price_indiv justify-content-between">
+                            <p>Product Amount</p>
+                            <p>Rs <span>0.00</span></p>
+                        </div>
+                        <div class="d-flex price_indiv justify-content-between">
+                            <p>Delivery Charge</p>
+                            <p>Rs <span>50</span></p>
+                        </div>
+                        <hr>
+                        <div class="total_amount d-flex justify-content-between font-weight-bold">
+                            <p>The Total Amount incl. VAT : </p>
+                            <p>Rs <span id="total_cart_amount">0.00</span></p>
+                        </div>
+                        <button class="btn btn-primary text-uppercase">Checkout</button>
+                    </div>
+                    <!-- Discount Code -->
+                    <div class="discount_code mt-3 shadow">
+                        <div class="card">
+                            <div class="card-body">
+                                <p>
+                                    <a class="d-flex justify-content-between" data-bs-toggle="collapse"
+                                        href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                                        Add the Discount Code
+                                        <span><i class="fas fa-chevron-down"></i></span>
+                                    </a>
+                                </p>
+                                <div class="collapse" id="collapseExample">
+                                    <div class="mt-3">
+                                        <input type="text" name="" id="discount_code1"
+                                            class="form-control font-weight-bold" placeholder="Discount Code">
+                                        <small id="error" class="text-dark ">Enter the valid code..</small>
+                                    </div>
+                                    <button class="btn btn-primary btn-sm mt-3" onclick="discount_code()">Apply</button>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+{% endblock body %}
