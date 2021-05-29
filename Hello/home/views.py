@@ -82,3 +82,11 @@ def cartPage(request):
         parameter = {'finalProd':serializers.data}
         return render(request,'cart.html',parameter)
 
+def checkout(request):
+    params = []
+    for i in finalValue:
+            productItem = Product.objects.filter(id=i)
+            params += productItem
+    serializers = ProductSerializer(params, many = True)
+    parameter = {'finalProd':serializers.data}
+    return render(request, 'checkout.html', parameter)

@@ -1,9 +1,16 @@
 {% extends 'base.html' %}
 {% block title %}{{prod.product_name}}{% endblock title %}
 {% block body %}
+<style>
+  .btn-outline-dark {
+    color : #800000;
+    border-color: #800000;
+}
+</style>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous">
+</script>
     
 <div class="container my-5">
     <div class="row">
@@ -16,7 +23,7 @@
                 {{prod.product_name}}
             </h1>
             <div class="row">
-                <button type="button" class="btn btn-outline-dark btn-sm mx-3" style="width: 100px;">Buy Now</button>
+                <button type="button" onclick="buyNow('{{prod.id}}')" class="btn btn-outline-dark btn-sm mx-3" style="outline-color: #800000; width: 100px;">Buy Now</button>
                 <button type="button" id="{{prod.id}}" class="btn btn-outline-dark btn-sm cart" style="width: 100px;">Add To Cart</button>
             </div>
             <p class="my-2 mx-1"><b>Rs. {{prod.price}}</b></p>
@@ -28,8 +35,18 @@
 {% endblock body %}
 {% block js %}
 <script> 
+      function buyNow(x){
+        var cart = {}
+        if(cart[JSON.parse(x)] != undefined){
+          cart[JSON.parse(x)] += 1;
+        }
+        else{
+          cart[JSON.parse(x)] = 1;
+        }
+        localStorage.setItem('cart',JSON.stringify(cart));
+        window.location.href = '/cart'
+      }
       if(localStorage.getItem('cart') == null){
-        console.log("nothing")
         var cart = {}
       }
       else{
@@ -37,9 +54,7 @@
          document.getElementById('cart_quantity').innerHTML = Object.keys(cart).length;
       }
       $('.cart').click(function(){
-        console.log('click')
         var idString = this.id.toString();
-        console.log(idString)
         if(cart[idString] != undefined){
           cart[idString] += 1;
         }

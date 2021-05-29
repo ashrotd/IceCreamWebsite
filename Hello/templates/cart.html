@@ -137,10 +137,10 @@
                                 <div class="row">
                                     <div class="col-6 card-title">
                                         <h1 class="mb-4 product_name">{{i.product_name}}</h1>
-                                        <p class="mb-2">Comfortable</p>
+                                        <p class="mb-2">{{i.desc|slice:"0:23"}}</p>
                                         <p class="mb-2">Smooth</p>
                                         <p class="mb-2">Bacteria Free</p>
-                                        <p class="mb-3">Baby Age</p>
+                                        <p class="mb-3">{{i.baby_age.as_p}}</p>
                                     </div>
                                     <!-- Quantity Increment/Decrement -->
                                     <div class="col-6">
@@ -161,7 +161,7 @@
                                     <div class="col-12 d-flex justify-content-between remove_wish">
                                         <p><i class="fas fa-trash-alt"></i>Remove Items</p>
                                         <p><i class="fas fa-heart"></i>Add to Wishlist</p>
-                                        <h3>Rs <span id="itemval">100</span></h3>
+                                        <h3>Rs <span id="itemval">{{i.price}}</span></h3>
                                     </div>
                                 </div>
                             </div>
@@ -186,7 +186,7 @@
                             <p>The Total Amount incl. VAT : </p>
                             <p>Rs <span id="total_cart_amount">0.00</span></p>
                         </div>
-                        <button class="btn btn-primary text-uppercase">Checkout</button>
+                       <a href="/checkout"> <button class="btn btn-primary text-uppercase">Checkout</button></a>
                     </div>
                     <!-- Discount Code -->
                     <div id="discount" class="discount_code mt-3 shadow">
@@ -248,6 +248,7 @@
             itemprices.innerHTML = parseInt(itemprices.innerHTML) - 15;
             product_total_amt.innerHTML = parseInt(product_total_amt.innerHTML) - parseInt(itemprices.innerHTML);
             total_cart_amt.innerHTML = parseInt(product_total_amt.innerHTML) + parseInt(shipping_charge.innerHTML);
+            localStorage.setItem('Total_Price',JSON.stringify(total_cart_amt.innerHTML))
 
         }
     }
@@ -265,6 +266,7 @@
             itemprices.innerHTML = parseInt(itemprices.innerHTML) + 15;
             product_total_amt.innerHTML = parseInt(product_total_amt.innerHTML) + parseInt(itemprices.innerHTML);
             total_cart_amt.innerHTML = parseInt(product_total_amt.innerHTML) + parseInt(shipping_charge.innerHTML);
+            localStorage.setItem('Total_Price',JSON.stringify(total_cart_amt.innerHTML))
         }
     }
     var currentDate = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
@@ -286,6 +288,7 @@
                 total_cart_amt.innerHTML = newtotalamt;
                 dis_code.innerHTML = "Hurray! code is valid";
                 discount.style.display = 'none';
+                localStorage.setItem('Total_Price', JSON.stringify(newtotalamt))
             }
             else {
                 error_trw.innerHTML = "Discount apply for Purchase above Rs. 1000"

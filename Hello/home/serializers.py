@@ -12,5 +12,6 @@ class ProductSerializer(serializers.ModelSerializer):
             "product_name",
             "price",
             "desc",
+            "baby_age",
             "image"
         ]
