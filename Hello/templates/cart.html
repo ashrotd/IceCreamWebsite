@@ -1,25 +1,142 @@
 {% extends 'base.html' %}
+{% block title %}Cart{% endblock title %}
+{% block link %}
+<link href="style.css">
+{% endblock link %}
 {% block body %}
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Roboto', sans-serif;
+    }
+
+    .main_cart {
+        background: #fff;
+    }
+
+    .card {
+        border: none;
+    }
+
+    .product_image img {
+        min-width: 200px;
+        max-height: 200px;
+    }
+
+    .product_name {
+        color: black;
+        font-size: 1.4rem;
+        text-transform: capitalize;
+        font-weight: 500;
+
+    }
+
+    .remove_wish h3 {
+        font-size: 1rem;
+        font-weight: 600;
+    }
+
+    .card-title p {
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: #4f4f4f;
+    }
+
+    .page-link {
+        display: flex;
+        font-size: 1rem;
+        width: 45px;
+        line-height: 16px;
+        justify-content: center;
+        align-items: center;
+        color: #495057;
+    }
+
+    .set_quantity {
+        position: relative;
+    }
+
+    .page-item input {
+        line-height: 22px;
+        padding: 3px;
+        font-size: 15px;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .page-link:hover {
+        text-decoration: none;
+        color: #495057;
+        outline: none !important;
+    }
+
+    .page-link:focus {
+        box-shadow: none;
+    }
+
+    .price_indiv p {
+        font-size: 1.1rem;
+    }
+
+    .fa-trash-alt:hover {
+        color: red;
+    }
+
+    .fa-heart:hover {
+        color: red;
+    }
+
+    .set_quantity::after {
+        content: 'Note, 1 Piece';
+        width: auto;
+        height: auto;
+        text-align: center;
+        position: absolute;
+        bottom: -20px;
+        right: 1.5rem;
+        font-size: 0.8rem;
+    }
+
+    .remove_wish p {
+        font-size: 0.8rem;
+        margin-bottom: 0;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    a:hover {
+        text-decoration: none;
+        color: #4f4f4f;
+    }
+</style>
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-10 col-11 mx-auto">
             <div class="row mt-5 gx-3">
                 <!--Left Side div-->
                 <div class="col-md-12 col-lg-8 col-11 mx-auto main_cart mb-lg-0 mb-5">
-                    <div class="card p-4 shadow">
-                        <h2 class="py-4 font-weight-bold">Cart Items</h2>
+                    {% for i in finalProd  %}
+                    <div class="card p-4 shadow mb-3">
+                        <h2 class="py-4 font-weight-bold">Cart Item</h2>
                         <div class="row">
                             <!--Cart Images-->
                             <div
                                 class="col-md-5 col-11 mx-auto bg-light d-flex justify-content-center align-items-center shadow product_image">
-                                <img src="/media/images/teether.jpg" class="img-fluid">
+                                <img src="{{i.image}}" class="img-fluid">
                             </div>
                             <!-- Image Details -->
                             <div class="col-md-7 col-11 mx-auto px-4 mt-2">
                                 <!-- product name -->
                                 <div class="row">
                                     <div class="col-6 card-title">
-                                        <h1 class="mb-4 product_name">Teether</h1>
+                                        <h1 class="mb-4 product_name">{{i.product_name}}</h1>
                                         <p class="mb-2">Comfortable</p>
                                         <p class="mb-2">Smooth</p>
                                         <p class="mb-2">Bacteria Free</p>
@@ -28,12 +145,14 @@
                                     <!-- Quantity Increment/Decrement -->
                                     <div class="col-6">
                                         <ul class="pagination justify-content-end set_quantity">
-                                            <li class="page-item"><button class="page-link" onclick="decrementNum()"
-                                                    href="#"><i class="fas fa-minus"></i></button></li>
+                                            <li class="page-item"><button class="page-link"
+                                                    onclick="decrementNum('textbox','itemval')" href="#"><i
+                                                        class="fas fa-minus"></i></button></li>
                                             <li class="page-item"><input type="text" class="page-link" value="1"
                                                     id="textbox"></input></li>
-                                            <li class="page-item"><button class="page-link" onclick="incrementNum()"
-                                                    href="#"><i class="fas fa-plus"></i></button></li>
+                                            <li class="page-item"><button class="page-link"
+                                                    onclick="incrementNum('textbox','itemval')" href="#"><i
+                                                        class="fas fa-plus"></i></button></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -42,56 +161,13 @@
                                     <div class="col-12 d-flex justify-content-between remove_wish">
                                         <p><i class="fas fa-trash-alt"></i>Remove Items</p>
                                         <p><i class="fas fa-heart"></i>Add to Wishlist</p>
-                                        <h3>Rs <span id="itemval">0.00</span></h3>
+                                        <h3>Rs <span id="itemval">100</span></h3>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="card p-4 shadow">
-
-                        <div class="row">
-                            <!--Cart Images-->
-                            <div
-                                class="col-md-5 col-11 mx-auto bg-light d-flex justify-content-center align-items-center shadow product_image">
-                                <img src="/media/images/cool_rompers.jpg" class="img-fluid">
-                            </div>
-                            <!-- Image Details -->
-                            <div class="col-md-7 col-11 mx-auto px-4 mt-2">
-                                <!-- product name -->
-                                <div class="row">
-                                    <div class="col-6 card-title">
-                                        <h1 class="mb-4 product_name">Teether</h1>
-                                        <p class="mb-2">Comfortable</p>
-                                        <p class="mb-2">Smooth</p>
-                                        <p class="mb-2">Bacteria Free</p>
-                                        <p class="mb-3">Baby Age</p>
-                                    </div>
-                                    <!-- Quantity Increment/Decrement -->
-                                    <div class="col-6">
-                                        <ul class="pagination justify-content-end set_quantity">
-                                            <li class="page-item"><button class="page-link" onclick="decrementNum()"
-                                                    href="#"><i class="fas fa-minus"></i></button></li>
-                                            <li class="page-item"><input type="text" class="page-link" value="1"
-                                                    id="textbox"></input></li>
-                                            <li class="page-item"><button class="page-link" onclick="incrementNum()"
-                                                    href="#"><i class="fas fa-plus"></i></button></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <!-- Remove, wishlist & Price -->
-                                <div class="row">
-                                    <div class="col-12 d-flex justify-content-between remove_wish">
-                                        <p><i class="fas fa-trash-alt"></i>Remove Items</p>
-                                        <p><i class="fas fa-heart"></i>Add to Wishlist</p>
-                                        <h3>Rs <span id="itemval">0.00</span></h3>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <!--Right side div-->
-                    </div>
+                    {% endfor %}
 
                 </div>
                 <div class="col-md-12 col 11 col-lg-4 mx-auto mt-md-5 mt-lg-0">
@@ -99,15 +175,11 @@
                         <h2 class="product_name mb-5">Total Amount of</h2>
                         <div class="d-flex price_indiv justify-content-between">
                             <p>Product Amount</p>
-                            <p>Rs <span>0.00</span></p>
-                        </div>
-                        <div class="d-flex price_indiv justify-content-between">
-                            <p>Product Amount</p>
-                            <p>Rs <span>0.00</span></p>
+                            <p>Rs <span id="product_amount">0.00</span></p>
                         </div>
                         <div class="d-flex price_indiv justify-content-between">
                             <p>Delivery Charge</p>
-                            <p>Rs <span>50</span></p>
+                            <p>Rs <span id="delivery_charge">50</span></p>
                         </div>
                         <hr>
                         <div class="total_amount d-flex justify-content-between font-weight-bold">
@@ -117,11 +189,11 @@
                         <button class="btn btn-primary text-uppercase">Checkout</button>
                     </div>
                     <!-- Discount Code -->
-                    <div class="discount_code mt-3 shadow">
+                    <div id="discount" class="discount_code mt-3 shadow">
                         <div class="card">
                             <div class="card-body">
                                 <p>
-                                    <a class="d-flex justify-content-between" data-bs-toggle="collapse"
+                                    <a id="code" class="d-flex justify-content-between" data-bs-toggle="collapse"
                                         href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                                         Add the Discount Code
                                         <span><i class="fas fa-chevron-down"></i></span>
@@ -131,13 +203,20 @@
                                     <div class="mt-3">
                                         <input type="text" name="" id="discount_code1"
                                             class="form-control font-weight-bold" placeholder="Discount Code">
-                                        <small id="error" class="text-dark ">Enter the valid code..</small>
+                                        <small id="error" class="text-dark ">Enter the valid code..<b>Get 10% off..</b>
+                                        </small>
                                     </div>
                                     <button class="btn btn-primary btn-sm mt-3" onclick="discount_code()">Apply</button>
 
                                 </div>
 
                             </div>
+                        </div>
+                    </div>
+                    <div class="mt-3 shadow p-3" style="background-color: #800000;">
+                        <div class="pt-4 text-white">
+                            <h5 class="mb-4">Expected delivery date :</h5>
+                            <h3 id="date"> July 27th 2020 - July 29th 2020</h3>
                         </div>
                     </div>
                 </div>
@@ -147,4 +226,107 @@
 
     </div>
 </div>
+
+
+{% block js %}
+<script>
+    var product_total_amt = document.getElementById('product_amount');
+    var shipping_charge = document.getElementById('delivery_charge');
+    var total_cart_amt = document.getElementById('total_cart_amount');
+    var discountCode = document.getElementById('discount_code1');
+    const decrementNum = (incdec, itemprice) => {
+        var itemval = document.getElementById(incdec);
+        var itemprices = document.getElementById(itemprice);
+        if (itemval.value <= 0) {
+            itemval.value = 0;
+            alert('Note, Negative number not allowed.')
+        }
+        else {
+            itemval.value = parseInt(itemval.value) - 1;
+            itemval.style.background = '#fff';
+            itemval.style.color = '#000';
+            itemprices.innerHTML = parseInt(itemprices.innerHTML) - 15;
+            product_total_amt.innerHTML = parseInt(product_total_amt.innerHTML) - parseInt(itemprices.innerHTML);
+            total_cart_amt.innerHTML = parseInt(product_total_amt.innerHTML) + parseInt(shipping_charge.innerHTML);
+
+        }
+    }
+    const incrementNum = (incdec, itemprice) => {
+        var itemval = document.getElementById(incdec);
+        var itemprices = document.getElementById(itemprice);
+        if (itemval.value >= 5) {
+            itemval.value = 5;
+            itemval.style.background = 'red';
+            alert('Cart is Full');
+            itemval.style.color = '#fff';
+        }
+        else {
+            itemval.value = parseInt(itemval.value) + 1;
+            itemprices.innerHTML = parseInt(itemprices.innerHTML) + 15;
+            product_total_amt.innerHTML = parseInt(product_total_amt.innerHTML) + parseInt(itemprices.innerHTML);
+            total_cart_amt.innerHTML = parseInt(product_total_amt.innerHTML) + parseInt(shipping_charge.innerHTML);
+        }
+    }
+    var currentDate = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
+    var day = currentDate.getDate()
+    var day1 = currentDate.getDate() + 1
+    var month = currentDate.getMonth() + 1
+    var year = currentDate.getFullYear()
+    console.log(("<b>" + day1 + "-" + month + "-" + year + "</b>"))
+    var date_fix = document.getElementById('date')
+    date_fix.innerHTML = "<b>" + day + "-" + month + "-" + year + "</b>" + " " + " to " + " " + "<b>" + day1 + "-" + month + "-" + year + "</b>";
+    const discount_code = () => {
+        var discount = document.getElementById('collapseExample');
+        var dis_code = document.getElementById('code');
+        let totalamtcurr = parseInt(total_cart_amt.innerHTML);
+        let error_trw = document.getElementById('error');
+        if (discountCode.value === 'Shriyam') {
+            if (totalamtcurr >= 1000) {
+                let newtotalamt = totalamtcurr - 0.1 * totalamtcurr;
+                total_cart_amt.innerHTML = newtotalamt;
+                dis_code.innerHTML = "Hurray! code is valid";
+                discount.style.display = 'none';
+            }
+            else {
+                error_trw.innerHTML = "Discount apply for Purchase above Rs. 1000"
+            }
+
+        } else {
+            error_trw.innerHTML = "Try Again! Invalid Code  ";
+        }
+
+    }
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+    const csrftoken = getCookie('csrftoken');
+    url = 'apiviews'
+    fetch(url, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': csrftoken,
+        },
+    })
+        .then((response) => {
+            return response.json()
+        })
+        .then((data) => {
+            console.log(data[0].product_name);
+            console.log(typeof (data));
+        })
+</script>
+{% endblock js %}
 {% endblock body %}

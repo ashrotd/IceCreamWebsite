@@ -1,235 +1,191 @@
 {% extends 'base.html' %}
 {% block title %}
 Home{% endblock title %}
+{% block link %}
+<link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/carousel/">
+<link rel="stylesheet" href="/static/home.css">
+{% endblock link %}
 {% block body %}
-<html lang="en">
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
-  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-  <meta name="generator" content="Hugo 0.83.1">
-
-
-  <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/carousel/">
-
-
-
-  <!-- Bootstrap core CSS -->
-  <link href="/docs/5.0/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
-  <!-- Favicons -->
-  <link rel="apple-touch-icon" href="/docs/5.0/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
-  <link rel="icon" href="/docs/5.0/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
-  <link rel="icon" href="/docs/5.0/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
-  <link rel="manifest" href="/docs/5.0/assets/img/favicons/manifest.json">
-  <link rel="mask-icon" href="/docs/5.0/assets/img/favicons/safari-pinned-tab.svg" color="#7952b3">
-  <link rel="icon" href="/docs/5.0/assets/img/favicons/favicon.ico">
-  <meta name="theme-color" content="#7952b3">
-
-  <style>
-    .col-md-3 {
-      display: inline-block;
-      margin-left: -4px;
-      padding: 5px;
-    }
-
-    .card {
-      align-items: center;
-    }
-
-    .carousel-control-prev-icon {
-      background: #800000 no-repeat center center;
-      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z'/%3e%3c/svg%3e");
-    }
-
-    .carousel-control-next-icon {
-      background: #800000 no-repeat center center;
-      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
-
-    }
-
-
-
-    .col-md-3 img {
-      max-width: 255px;
-      height: 200px;
-    }
-
-
-    body .carousel-indicators {
-      bottom: 0;
-    }
-
-    body .no-padding {
-      padding-left: 0,
-    }
-  </style>
-
-  <!-- Custom styles for this template -->
-  <link href="carousel.css" rel="stylesheet">
-</head>
-
-<body>
-
+    
   <!--Cover Page Slider-->
   <main>
-    <div id="myCarousel" class="carousel slide pointer-event" data-bs-ride="carousel">
-      <div class="carousel-indicators">
-        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"
-          aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2" class=""></button>
-        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"
-          aria-current="true"></button>
+    <div col-md-12 col-12>
+      <div id="myCarousel" class="carousel slide pointer-event" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"
+            aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"
+            class=""></button>
+          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"
+            aria-current="true"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item" id="carousel_item">
+            <img src="/static/img/juice.jfif" class="bd-placeholder-img" width="100%" height="100%" aria-hidden="true"
+              preserveAspectRatio="xMidYMid slice" focusable="false">
+            <rect width="100%" height="100%" fill="#777" alt="...">
+
+              <div class="container">
+                <div class="carousel-caption text-end">
+
+                  <div class="header">
+                    <form>
+                      <h1 style="color: #800000;">Find Children Closet Easily</h1>
+                    </form>
+                  </div>
+                  <p style="color: #800000;">Some representative placeholder content for the first slide of the
+                    carousel.
+                  </p>
+                  <p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p>
+                </div>
+              </div>
+          </div>
+          <div class="carousel-item" id="carousel_item">
+            <img src="/static/img/ice-cream.jfif" class="bd-placeholder-img" width="100%" height="100%"
+              aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+            <rect width="100%" height="100%" fill="#777" alt="...">
+
+              <div class="container">
+                <div class="carousel-caption text-end">
+
+                  <div class="header">
+                    <form>
+                      <h1 style="color: #800000;">Find Children Closet Easily</h1>
+                    </form>
+                  </div>
+                  <p style="color: #800000;">Some representative placeholder content for the second slide of the
+                    carousel.
+                  </p>
+                  <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
+                </div>
+              </div>
+          </div>
+          <div class="carousel-item active" id="carousel_item">
+            <img src="/static/img/cream.jfif" class="bd-placeholder-img" width="100%" height="100%" aria-hidden="true"
+              preserveAspectRatio="xMidYMid slice" focusable="false">
+            <rect width="100%" height="100%" fill="#777" alt="...">
+
+              <div class="container">
+                <div class="carousel-caption text-end">
+                  <div class="header">
+                    <form>
+                      <h1 style="color: #800000;">Find Children Closet Easily</h1>
+                    </form>
+                  </div>
+                  <p style="color: #800000;">Some representative placeholder content for the third slide of this
+                    carousel.
+                  </p>
+                  <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
+                </div>
+              </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
       </div>
-      <div class="carousel-inner">
-        <div class="carousel-item">
-          <img src="/static/img/juice.jfif" class="bd-placeholder-img" width="100%" height="100%" aria-hidden="true"
-            preserveAspectRatio="xMidYMid slice" focusable="false">
-          <rect width="100%" height="100%" fill="#777" alt="...">
-
-            <div class="container">
-              <div class="carousel-caption text-end">
-
-                <div class="header">
-                  <form>
-                    <h1 style="color: #800000;">Find Children Closet Easily</h1>
-                  </form>
-                </div>
-                <p style="color: #800000;">Some representative placeholder content for the first slide of the carousel.
-                </p>
-                <p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p>
-              </div>
-            </div>
-        </div>
-        <div class="carousel-item">
-          <img src="/static/img/ice-cream.jfif" class="bd-placeholder-img" width="100%" height="100%" aria-hidden="true"
-            preserveAspectRatio="xMidYMid slice" focusable="false">
-          <rect width="100%" height="100%" fill="#777" alt="...">
-
-            <div class="container">
-              <div class="carousel-caption text-end">
-
-                <div class="header">
-                  <form>
-                    <h1 style="color: #800000;">Find Children Closet Easily</h1>
-                  </form>
-                </div>
-                <p style="color: #800000;">Some representative placeholder content for the second slide of the carousel.
-                </p>
-                <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
-              </div>
-            </div>
-        </div>
-        <div class="carousel-item active">
-          <img src="/static/img/cream.jfif" class="bd-placeholder-img" width="100%" height="100%" aria-hidden="true"
-            preserveAspectRatio="xMidYMid slice" focusable="false">
-          <rect width="100%" height="100%" fill="#777" alt="...">
-
-            <div class="container">
-              <div class="carousel-caption text-end">
-                <div class="header">
-                  <form>
-                    <h1 style="color: #800000;">Find Children Closet Easily</h1>
-                  </form>
-                </div>
-                <p style="color: #800000;">Some representative placeholder content for the third slide of this carousel.
-                </p>
-                <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
-              </div>
-            </div>
-        </div>
-      </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
     </div>
     <!--Search Box (Quick Search)-->
     <div class="container my-3">
       <div class="header">
         <form>
-          <div class="form-box text-center" style="background: rgba(0,0,0, 0.5); padding: 30px;">
-            <select style="border-radius: 20px;" class=" col-6 form-select-lg mb-3"
-              aria-label=".form-select-lg example">
-              <option selected>Choose the Dress Categories</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
-            </select>
-            <select style="border-radius: 20px;" class=" col-2 form-select-lg mb-3"
-              aria-label=".form-select-lg example">
-              <option selected>Gender</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
-            </select>
-            <select style="border-radius: 20px;" class=" col-2 form-select-lg mb-3"
-              aria-label=".form-select-lg example">
-              <option selected>Age</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
-            </select>
-            <button style="border-radius: 20px;" type="button" class="btn btn-dark mb-2 btn-lg">Quick Search</button>
+
+          <div class="container">
+            <div class="col-lg-11 col-11 mx-auto mb-lg-1 mb-2">
+              <div class="form-box text-center shadow" style="background: rgba(128,0, 0); padding: 10px;">
+                <div class="row justify-content-between">
+                  <div class="col-md-5 col-11 mb-1 mx-auto">
+                    <select style="border-radius: 20px;" class="form-select-lg form"
+                      aria-label=".form-select-lg example">
+                      <option class="options" selected>Choose the Dress Categories</option>
+                      <option class="options" value="1">One</option>
+                      <option class="options" value="2">Two</option>
+                      <option class="options" value="3">Three</option>
+                    </select>
+                  </div>
+                  <div class="col-md-2 col-11 mx-auto mb-1">
+                    <select style="border-radius: 20px;" class="form-select-lg form"
+                      aria-label=".form-select-lg example">
+                      <option selected>Gender</option>
+                      <option value="1">One</option>
+                      <option value="2">Two</option>
+                      <option value="3">Three</option>
+                    </select>
+                  </div>
+                  <div class="col-md-2 col-11 mx-auto mb-1 justify-content-center">
+                    <select style="border-radius: 20px;" class="form-select-lg form"
+                      aria-label=".form-select-lg example">
+                      <option selected>Age</option>
+                      <option value="1">One</option>
+                      <option value="2">Two</option>
+                      <option value="3">Three</option>
+                    </select>
+                  </div>
+                  <div class="col-md-3 col-11 mb-1 mx-auto justify-content-center">
+                    <button style="border-radius: 20px;" type="button" class="btn btn-dark btn-lg form">Search</button>
+                  </div>
+                </div>
+                
+              </div>
+
+            </div>
           </div>
-        </form>
+          
       </div>
+      </form>
+    </div>
     </div>
 
     <!--Most Popular Section-->
     <div class="container text-center my-5">
       <h1>Most Popular</h1>
-  </div>
-  <div class="container my-5">
+    </div>
+    <div class="container my-5">
 
 
       <div id="carouselExampleControl" class="carousel slide" data-bs-ride="carousel">
-          <div class="carousel-inner no-padding text-center">
-              <div class="carousel-item active">
+        <div class="carousel-inner no-padding text-center">
+          <div class="carousel-item active">
 
 
-                  {% for i in product %}
-                  <div class="col-xs-3 col-sm-3 col-md-3">
-                      <div class="card text-center" style="width: 18rem;">
-                          <img src='/media/{{i.image}}' class="card-img-top" alt="...">
-                          <div class="card-body">
-                              <h5 class="card-title">{{i.product_name}}</h5>
-                              <p class="card-text">{{i.desc|slice:"0:53"}}....</p>
-                              <a href="#" id="pr{{i.id}}" class="btn btn-primary cart" >Add To Cart</a>
-                              <a href="/product/{{i.id}}" id="qv{{i.id}}"  class="btn btn-primary ">View Product</a>
-                          </div>
-                      </div>
-                  </div>
-
-                  {% if forloop.counter|divisibleby:4 and forloop.counter > 0 and not forloop.last %}
-
+            {% for i in product %}
+            <div class="col-xs-3 col-sm-3 col-md-3">
+              <div class="card text-center" style="width: 18rem;">
+                <img src='/media/{{i.image}}' class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">{{i.product_name}}</h5>
+                  <p class="card-text">{{i.desc|slice:"0:53"}}....</p>
+                  <a href="#" id="{{i.id}}" class="btn cart text-white border-white view">Add To Cart</a>
+                  <a href="/product/{{i.id}}" id="qv{{i.id}}" class="btn view text-white ">View Product</a>
+                </div>
               </div>
-              <div class="carousel-item">
-                  {% endif %}
+            </div>
 
-                  {% endfor %}
-              </div>
-              
+            {% if forloop.counter|divisibleby:4 and forloop.counter > 0 and not forloop.last %}
+
           </div>
-          <button class="carousel-control-prev" style="width: 5rem;" type="button" data-bs-target="#carouselExampleControl"
-                  data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
-              </button>
-              <button class="carousel-control-next" style="width: 5rem;" type="button" data-bs-target="#carouselExampleControl"
-                  data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
-              </button>
+          <div class="carousel-item">
+            {% endif %}
+
+            {% endfor %}
+          </div>
+
+        </div>
+        <button class="carousel-control-prev" style="width: 5rem;" type="button"
+          data-bs-target="#carouselExampleControl" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" style="width: 5rem;" type="button"
+          data-bs-target="#carouselExampleControl" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
       </div>
     </div>
     </div>
@@ -237,50 +193,50 @@ Home{% endblock title %}
 
     <div class="container text-center my-5">
       <h1>Hot Selling</h1>
-  </div>
-  <div class="container my-5">
+    </div>
+    <div class="container my-5">
 
 
       <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-          <div class="carousel-inner no-padding text-center">
-              <div class="carousel-item active">
+        <div class="carousel-inner no-padding text-center">
+          <div class="carousel-item active">
 
 
-                  {% for i in products %}
-                  <div class="col-xs-3 col-sm-3 col-md-3">
-                      <div class="card text-center" style="width: 18rem;">
-                          <img src='/media/{{i.image}}' class="card-img-top" alt="...">
-                          <div class="card-body">
-                              <h5 class="card-title">{{i.product_name}}</h5>
-                              <p class="card-text">{{i.desc|slice:"0:53"}}....</p>
-                              <button href="#" id="pr{{i.id}}" class="btn btn-primary cart">Add To Cart</button>
-                              <a href="/product/{{i.id}}" id="qv{{i.id}}" class="btn btn-primary">View Product</a>
-                          </div>
-                      </div>
-                  </div>
-
-                  {% if forloop.counter|divisibleby:4 and forloop.counter > 0 and not forloop.last %}
-
+            {% for i in products %}
+            <div class="col-xs-3 col-sm-3 col-md-3">
+              <div class="card text-center" style="width: 18rem;">
+                <img src='/media/{{i.image}}' class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">{{i.product_name}}</h5>
+                  <p class="card-text">{{i.desc|slice:"0:53"}}....</p>
+                  <button href="#" id="{{i.id}}" class="btn view text-white cart">Add To Cart</button>
+                  <a href="/product/{{i.id}}" id="qv{{i.id}}" class="btn view text-white text-white">View Product</a>
+                </div>
               </div>
-              <div class="carousel-item">
-                  {% endif %}
+            </div>
 
-                  {% endfor %}
-              </div>
-              
+            {% if forloop.counter|divisibleby:4 and forloop.counter > 0 and not forloop.last %}
+
           </div>
-          <button class="carousel-control-prev" style="width: 5rem;" type="button" data-bs-target="#carouselExampleControls"
-                  data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
-              </button>
-              <button class="carousel-control-next" style="width: 5rem;" type="button" data-bs-target="#carouselExampleControls"
-                  data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
-              </button>
+          <div class="carousel-item">
+            {% endif %}
+
+            {% endfor %}
+          </div>
+
         </div>
+        <button class="carousel-control-prev" style="width: 5rem;" type="button"
+          data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" style="width: 5rem;" type="button"
+          data-bs-target="#carouselExampleControls" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
       </div>
+    </div>
     </div>
     <!--Twining Dress Section-->
     <div class="container">
@@ -319,35 +275,65 @@ Home{% endblock title %}
         </div>
       </div>
     </div>
+    {% endblock body %}
+
     {% block js %}
     <script>
-      
-      if(localStorage.getItem('cart') == null){
+      if (localStorage.getItem('cart') == null) {
         console.log("nothing")
         var cart = {}
       }
-      else{
+      else {
         cart = JSON.parse(localStorage.getItem('cart'));
         document.getElementById('cart_quantity').innerHTML = Object.keys(cart).length;
-        document.getElementById('cart_quantity1').innerHTML = Object.keys(cart).length;
       }
-      $('.cart').click(function(){
-        console.log('click')
+      $('.cart').click(function () {
         var idString = this.id.toString();
-        console.log(idString)
-        if(cart[idString] != undefined){
+        if (cart[idString] != undefined) {
           cart[idString] += 1;
         }
-        else{
+        else {
           cart[idString] = 1
         }
-        localStorage.setItem('cart',JSON.stringify(cart))
-        
+        localStorage.setItem('cart', JSON.stringify(cart))
         document.getElementById('cart_quantity').innerHTML = Object.keys(cart).length;
-        document.getElementById('cart_quantity1').innerHTML = Object.keys(cart).length;
-      })
+        alert('Item Added to Cart');
+      });
+      function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+    var localid = JSON.parse(localStorage.getItem('cart'))
+     console.log(typeof( localid))
+    const csrftoken = getCookie('csrftoken');
+    var url = 'cart-item';
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': csrftoken,
+        },
+        body: JSON.stringify({'localId':localid})
+    })
+    .then((response)=>{
+      return response.json()
+    })
+    .then((data) => {
+      console.log(data)
+      console.log(typeof(data))
+    })
+    
     </script>
     {% endblock js %}
-    {% endblock body %}
   </main>
-</body>

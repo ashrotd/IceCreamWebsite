@@ -7,26 +7,27 @@
     
 <div class="container my-5">
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-4 col-11 text-center align-items-center">
             <img src="/media/{{prod.image}}" alt="" width="300px" height="350px">
         </div>
 
-        <div class="col-md-8">
+        <div class="col-md-8 col-11">
             <h1>
                 {{prod.product_name}}
             </h1>
             <div class="row">
                 <button type="button" class="btn btn-outline-dark btn-sm mx-3" style="width: 100px;">Buy Now</button>
-                <button type="button" id="pr{{prod.id}}" class="btn btn-outline-dark btn-sm cart" style="width: 100px;">Add To Cart</button>
+                <button type="button" id="{{prod.id}}" class="btn btn-outline-dark btn-sm cart" style="width: 100px;">Add To Cart</button>
             </div>
             <p class="my-2 mx-1"><b>Rs. {{prod.price}}</b></p>
             <p class="my-5">{{prod.desc}}</p>
         </div>
     </div>
 </div>
+
+{% endblock body %}
 {% block js %}
-<script>
-      
+<script> 
       if(localStorage.getItem('cart') == null){
         console.log("nothing")
         var cart = {}
@@ -34,7 +35,6 @@
       else{
         cart = JSON.parse(localStorage.getItem('cart'));
          document.getElementById('cart_quantity').innerHTML = Object.keys(cart).length;
-        document.getElementById('cart_quantity1').innerHTML = Object.keys(cart).length;
       }
       $('.cart').click(function(){
         console.log('click')
@@ -44,17 +44,13 @@
           cart[idString] += 1;
         }
         else{
-          cart[idString] = 1
+          cart[idString] = 1;
         }
-        localStorage.setItem('cart',JSON.stringify(cart))
-        
+        localStorage.setItem('cart',JSON.stringify(cart));        
         document.getElementById('cart_quantity').innerHTML = Object.keys(cart).length;
-        document.getElementById('cart_quantity1').innerHTML = Object.keys(cart).length;
-      })
+        alert('Item Added to Cart');
+      });
+      
     </script>
 
 {% endblock js %}
-
-
-{% endblock body %}
-
